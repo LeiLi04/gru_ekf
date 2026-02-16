@@ -1,0 +1,16 @@
+_target_: src.data.lit_datamodule.RangeDataModule
+dataset_path: data/raw/trajectory_wpi/trajectory_wpi_N300_T500_qc3._sigmar0.2.npz
+batch_size: 32
+num_workers: 4
+pin_memory: true
+shuffle: true
+window_length: 125
+window_stride: 125
+tr_to_test_split: 0.9
+tr_to_val_split: 0.8333
+warm_fraction: 0.1
+warmup_split: val
+splits_name: ""
+split_path: ""
+obs_dim: ${model.obs_dim}
+seed: ${seed}

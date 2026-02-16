@@ -1,0 +1,58 @@
+_target_: src.models.lit_module.GruAugmentedEkfLitModule
+
+# Model & dynamics
+state_dim: 4
+obs_dim: 4
+dt: 0.01
+cov_factor_scale: 1.0
+cov_rank: 0
+dynamics_hidden: 128
+dynamics_depth: 3
+dynamics_use_gru: true
+dynamics_tanh_scale: 0.1
+dynamics_residual_init_std: 0.001
+dynamics_scale_a_min: 0.95
+dynamics_scale_a_max: 10.0
+max_delta: null
+dynamics_use_beta_head: false
+dynamics_beta_min: 0.1
+dynamics_beta_max: 10.0
+dynamics_beta_init: 1.0
+dynamics_feature_mode: basic
+q_init: 0.05
+r_init: 0.1
+train_q: false
+train_r: false
+train_stage: joint
+
+# Training hyperparameters
+tbptt_steps: 50
+sigma0_scale: 1.0
+lambda_nis: 0.0
+lambda_delta: 0.0001
+lambda_beta: 0.0
+lambda_beta_smooth: 0.0
+lambda_L: 0.0001
+amp: true
+
+# Optimizer & scheduler (Hydra-instantiated)
+optimizer:
+  _target_: torch.optim.Adam
+  lr: 0.001
+  betas: [0.9, 0.999]
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  mode: min
+  factor: 0.5
+  patience: 3
+  threshold: 0.001
+  verbose: true
+
+warmup:
+  use: false
+  split: val
+  eps: 1.0e-6
+
+# Provide dataset path so measurement anchors can be loaded inside the module.
+dataset_path: ${data.dataset_path}

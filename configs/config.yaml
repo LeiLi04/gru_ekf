@@ -1,0 +1,15 @@
+defaults:
+  - model: gru_augmented_ekf
+  - data: range_npz
+  - trainer: default
+  - callbacks: default
+  - _self_
+
+seed: 42
+deterministic: false
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  job:
+    chdir: true
