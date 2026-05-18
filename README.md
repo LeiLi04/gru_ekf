@@ -14,8 +14,8 @@ This project implements a `GRU + EKF` framework for 2D multi-anchor range-only t
   - `src/data/components/data_generator.py`: fixed-`Q` datasets (matched / mismatch).
   - `src/data/components/data_generator_varyQ.py`: piecewise time-varying `Q` datasets (three `qc` segments).
 - Notebook roles:
-  - `notebooks/E1.ipynb`: main generalization experiment under mismatch.
-  - `notebooks/E2.ipynb`: online beta-adaptation analysis.
+  - `E1_Annotation.ipynb`: main generalization experiment under mismatch.
+  - `E2_Annotation.ipynb`: online beta-adaptation analysis.
 
 ## 2. Dependencies and Environment
 
