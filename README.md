@@ -20,14 +20,9 @@ This project implements a `GRU + EKF` framework for 2D multi-anchor range-only t
 ## 2. Dependencies and Environment
 
 - Python: recommended `3.10+`
-- Install dependencies (we use [`uv`](https://docs.astral.sh/uv/) for fast resolution; plain `pip` also works):
+- Install dependencies:
 
 ```bash
-# With uv (recommended)
-uv venv
-uv pip install -r requirements.txt
-
-# Or with pip
 pip install -r requirements.txt
 ```
 
